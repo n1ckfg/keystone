@@ -10,8 +10,15 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-javac -cp /Applications/Processing/Processing3.app/Contents/Java/core.jar keystone/*.java
-mv keystone/*.class build/keystone/
+cp /Applications/Processing/Processing3.app/Contents/Java/core.jar lib/core.jar
+cp ../library/jai_core.jar lib/jai_core.jar
+
+javac -cp lib/\* deadpixel/keystone/*.java
+mv deadpixel/keystone/*.class build/deadpixel/keystone/
 cd build
-jar cvfm ../../library/keystone.jar manifest.txt keystone/*.class
+jar cvfm ../../library/keystone.jar manifest.txt deadpixel/keystone/*.class
+
+cd ..
+rm lib/core.jar
+rm lib/jai_core.jar
 
