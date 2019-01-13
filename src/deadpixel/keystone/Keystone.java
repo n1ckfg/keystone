@@ -63,9 +63,9 @@ public class Keystone {
 		// check the renderer type
 		// issue a warning if we're not in 3D mode 
 		PGraphics pg = parent.g;
-		if ((pg instanceof PGraphics3D) == false ) {
-			PApplet.println("The keystone library will not work with 2D graphics as the renderer because it relies on texture mapping. " +
-					"Try P3D or OPENGL.");
+		if ((pg instanceof PGraphics3D) == false && (pg instanceof PGraphics) == false) {
+			PApplet.println("The keystone library will not work with the default renderer because it relies on texture mapping. " +
+					"Use P3D or P2D.");
 		}
 		
 		PApplet.println("Keystone " + VERSION);
